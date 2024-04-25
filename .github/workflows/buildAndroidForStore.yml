@@ -16,7 +16,7 @@ jobs:
       - name: Copy artifacts
         run: |
           mkdir -p $HOME/build-artifacts
-          # Replace 'path/to/your/artifacts' with the actual path to your artifacts directory
+          # Replace 'path/to/your/artifacts' with the correct path to your artifacts directory
           cp -r path/to/your/artifacts/* $HOME/build-artifacts
 
       - uses: actions/upload-artifact@v2
