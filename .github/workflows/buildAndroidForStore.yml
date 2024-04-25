@@ -33,7 +33,12 @@ jobs:
           targetPlatform: Android 
           androidAppBundle: 'true'
 
+      - name: Move build artifacts
+        run: |
+          mkdir -p build_artifacts
+          mv build/Android build_artifacts/
+
       - uses: actions/upload-artifact@v2
         with:
           name: Build-Android
-          path: build/Android
+          path: build_artifacts
