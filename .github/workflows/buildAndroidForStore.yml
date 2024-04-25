@@ -33,12 +33,12 @@ jobs:
           targetPlatform: Android 
           androidAppBundle: 'true'
 
-      - name: Move build artifacts
+      - name: Copy artifacts
         run: |
-          mkdir -p build_artifacts
-          mv build/Android build_artifacts/
+          mkdir -p $HOME/build-artifacts
+          cp -r path/to/your/artifacts/* $HOME/build-artifacts
 
       - uses: actions/upload-artifact@v2
         with:
           name: Build-Android
-          path: build_artifacts
+          path: $HOME/build-artifacts
