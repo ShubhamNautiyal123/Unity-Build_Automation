@@ -35,12 +35,13 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          node-version: '20.x'
         with:
           targetPlatform: Android 
           androidAppBundle: 'true'
         # Update to Node.js 20
-        env:
-          node-version: '20.x'
+       
+          
 
       - uses: actions/upload-artifact@v2
         with:
