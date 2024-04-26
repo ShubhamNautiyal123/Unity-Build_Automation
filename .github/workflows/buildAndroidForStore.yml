@@ -16,7 +16,7 @@ jobs:
       - name: Set up Unity
         uses: game-ci/setup-unity@v2
         with:
-          unity-version: 2020.3.x  # Adjust to your Unity version
+          unity-version: 2021.3.x  # Adjust to your Unity version
 
       - name: Build Android
         run: |
