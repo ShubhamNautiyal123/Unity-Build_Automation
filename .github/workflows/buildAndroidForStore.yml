@@ -33,7 +33,7 @@ jobs:
           targetPlatform: Android 
           androidAppBundle: 'true'
 
-      - uses: actions/artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: Build-Android
           path: build/Android
