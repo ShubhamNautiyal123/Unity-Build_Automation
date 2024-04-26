@@ -1,24 +1,30 @@
-name: Build Android for store
+name: Build Android APK
 
 on:
-  workflow_dispatch: {}
+  push:
+    branches:
+      - main  # Adjust the branch name if needed
 
 jobs:
-  buildAndroid:
+  build-android:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Build Android APK
+      - name: Set up Unity
+        uses: game-ci/setup-unity@v2
+        with:
+          unity-version: 2020.3.x  # Adjust to your Unity version
+
+      - name: Build Android
         run: |
-          # Placeholder command for building APK
-          echo "Building Android APK..."
-          mkdir -p build/Android
-          touch build/Android/example.apk  # Create a placeholder APK file
+          unity -quit -batchmode -projectPath . -executeMethod BuildScript.BuildAndroid
+        working-directory: path/to/your/project
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v2
         with:
           name: Build-Android
-          path: build/Android
+          path: path/to/your/project/Builds/Android
